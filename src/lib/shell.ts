@@ -57,18 +57,19 @@ function navigation(active: TabKey): HTMLElement {
 }
 
 export function renderShell(root: HTMLElement, active: TabKey, header: ShellHeader): HTMLElement {
-  const content = el("div", { className: "content" });
+  const content = el("div", { className: "content page-enter" });
 
-  const shell = el("div", { className: "app-shell page-enter" }, [
+  const shell = el("div", { className: "app-shell" }, [
     el("header", { className: "app-header" }, [
       header.eyebrow ? el("span", { className: "eyebrow" }, [header.eyebrow]) : null,
       el("h1", {}, [header.title]),
       header.subtitle ? el("p", {}, [header.subtitle]) : null
     ]),
-    content,
-    navigation(active)
+    content
   ]);
 
-  mount(root, shell);
+  // La navigation reste hors de `.app-shell` : un ancêtre animé en `transform`
+  // formerait un bloc conteneur et casserait son `position: fixed`.
+  mount(root, shell, navigation(active));
   return content;
 }

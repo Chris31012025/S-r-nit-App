@@ -18,6 +18,18 @@ describe("every screen renders without throwing", () => {
     expect(root.querySelector(".app-shell")).not.toBeNull();
   });
 
+  it("keeps the bottom navigation outside the animated shell so it stays fixed", () => {
+    const root = host();
+    renderHome(root);
+
+    const nav = root.querySelector(".bottom-nav");
+    expect(nav).not.toBeNull();
+    expect(nav?.parentElement).toBe(root);
+    expect(root.querySelector(".app-shell .bottom-nav")).toBeNull();
+    expect(root.querySelector(".app-shell")?.classList.contains("page-enter")).toBe(false);
+    expect(root.querySelector(".content")?.classList.contains("page-enter")).toBe(true);
+  });
+
   it("theme grid, theme detail and question card", () => {
     const grid = host();
     renderQuestions(grid, new URLSearchParams());
