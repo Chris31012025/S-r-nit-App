@@ -1,12 +1,12 @@
-import { guide707Questions } from "../../data";
+import { civicQuestions } from "../../data";
 import { CIVIC_CHAPTERS, type CivicChapterKey } from "../../data/enums";
 import { el } from "../../lib/dom";
 import { renderShell } from "../../lib/shell";
 import { loadProgress, saveProgress, toggleMastered } from "../../state/progress";
 
 function renderQuestionDetail(content: HTMLElement, questionId: number): void {
-  const index = guide707Questions.findIndex((q) => q.id === questionId);
-  const question = guide707Questions[index];
+  const index = civicQuestions.findIndex((q) => q.id === questionId);
+  const question = civicQuestions[index];
   if (!question) {
     content.append(el("div", { className: "empty-state" }, ["Question introuvable."]));
     return;
@@ -14,11 +14,11 @@ function renderQuestionDetail(content: HTMLElement, questionId: number): void {
 
   const progress = loadProgress();
   const isMastered = progress.masteredQuestionIds.includes(question.id);
-  const prev = guide707Questions[index - 1];
-  const next = guide707Questions[index + 1];
+  const prev = civicQuestions[index - 1];
+  const next = civicQuestions[index + 1];
 
   content.append(
-    el("a", { href: "#/guide707", className: "button-secondary" }, ["← Retour à la liste"]),
+    el("a", { href: "#/questions", className: "button-secondary" }, ["← Retour à la liste"]),
     el("div", { className: "card" }, [
       el("div", { className: "meta-row" }, [
         el("span", { className: "tag" }, [CIVIC_CHAPTERS[question.chapter].shortTitle]),
@@ -46,8 +46,8 @@ function renderQuestionDetail(content: HTMLElement, questionId: number): void {
       )
     ]),
     el("div", { className: "meta-row" }, [
-      prev ? el("a", { href: `#/guide707?q=${prev.id}`, className: "button-secondary" }, ["← Précédente"]) : el("span", {}, []),
-      next ? el("a", { href: `#/guide707?q=${next.id}`, className: "button-secondary" }, ["Suivante →"]) : el("span", {}, [])
+      prev ? el("a", { href: `#/questions?q=${prev.id}`, className: "button-secondary" }, ["← Précédente"]) : el("span", {}, []),
+      next ? el("a", { href: `#/questions?q=${next.id}`, className: "button-secondary" }, ["Suivante →"]) : el("span", {}, [])
     ])
   );
 }
@@ -57,7 +57,7 @@ function renderList(content: HTMLElement): void {
   const chapterKeys = Object.keys(CIVIC_CHAPTERS) as CivicChapterKey[];
 
   for (const chapterKey of chapterKeys) {
-    const questions = guide707Questions.filter((q) => q.chapter === chapterKey);
+    const questions = civicQuestions.filter((q) => q.chapter === chapterKey);
     if (questions.length === 0) continue;
     const masteredCount = questions.filter((q) => progress.masteredQuestionIds.includes(q.id)).length;
 
@@ -72,7 +72,7 @@ function renderList(content: HTMLElement): void {
           "div",
           { style: "display:flex; flex-direction:column; gap:8px; margin-top:12px" },
           questions.map((q) =>
-            el("a", { href: `#/guide707?q=${q.id}`, className: "list-item" }, [
+            el("a", { href: `#/questions?q=${q.id}`, className: "list-item" }, [
               el("div", { className: "meta-row" }, [
                 el("strong", {}, [q.numberText]),
                 progress.masteredQuestionIds.includes(q.id) ? el("span", { className: "tag" }, ["✓"]) : null
@@ -86,15 +86,15 @@ function renderList(content: HTMLElement): void {
   }
 }
 
-export function renderGuide707(root: HTMLElement, params: URLSearchParams): void {
+export function renderQuestions(root: HTMLElement, params: URLSearchParams): void {
   const questionIdParam = params.get("q");
   const questionId = questionIdParam ? Number.parseInt(questionIdParam, 10) : null;
 
   const content = renderShell(
     root,
-    "guide707",
-    "Guide 707",
-    "Les questions clés posées en préfecture, avec réponses types"
+    "questions",
+    "Questions & Réponses",
+    "Les thèmes essentiels à connaître, organisés par catégorie"
   );
 
   if (questionId !== null && Number.isFinite(questionId)) {

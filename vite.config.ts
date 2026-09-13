@@ -11,7 +11,7 @@ export default defineConfig({
         name: "Sérénité Républicaine",
         short_name: "Sérénité",
         description:
-          "Préparation sereine à l'entretien de naturalisation française : Livret du Citoyen, Guide 707, simulation orale et bilan de progression.",
+          "Préparation sereine à l'entretien de naturalisation française : Livret du Citoyen, questions et réponses, simulation orale et bilan de progression.",
         lang: "fr",
         start_url: "/",
         scope: "/",

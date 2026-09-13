@@ -1,11 +1,11 @@
 import { el, mount } from "./dom";
 
-export type TabKey = "home" | "livret" | "guide707" | "oral" | "bilan";
+export type TabKey = "home" | "livret" | "questions" | "oral" | "bilan";
 
 const TABS: { key: TabKey; path: string; label: string }[] = [
   { key: "home", path: "/", label: "Accueil" },
   { key: "livret", path: "/livret", label: "Livret" },
-  { key: "guide707", path: "/guide707", label: "Guide 707" },
+  { key: "questions", path: "/questions", label: "Questions" },
   { key: "oral", path: "/oral", label: "Oral" },
   { key: "bilan", path: "/bilan", label: "Bilan" }
 ];

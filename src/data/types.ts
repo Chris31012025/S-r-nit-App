@@ -1,6 +1,6 @@
 import type { CivicChapterKey, HistoricPeriodKey, LivretCategoryKey } from "./enums";
 
-export type GuideQuestion = {
+export type CivicQuestion = {
   id: number;
   numberText: string;
   chapter: CivicChapterKey;

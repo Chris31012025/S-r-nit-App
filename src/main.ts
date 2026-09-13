@@ -1,6 +1,6 @@
 import "./styles/base.css";
 import { renderBilan } from "./features/bilan/bilan";
-import { renderGuide707 } from "./features/guide707/guide707";
+import { renderQuestions } from "./features/questions/questions";
 import { renderHome } from "./features/home/home";
 import { renderLivret } from "./features/livret/livret";
 import { renderOral } from "./features/oral/oral";
@@ -15,7 +15,7 @@ startRouter(
   [
     { path: "/", render: renderHome },
     { path: "/livret", render: renderLivret },
-    { path: "/guide707", render: renderGuide707 },
+    { path: "/questions", render: renderQuestions },
     { path: "/oral", render: renderOral },
     { path: "/bilan", render: renderBilan }
   ],

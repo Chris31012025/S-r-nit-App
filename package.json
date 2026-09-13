@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Préparation sereine à l'entretien de naturalisation française : Livret du Citoyen, Guide 707, simulation orale et bilan de progression.",
+  "description": "Préparation sereine à l'entretien de naturalisation française : Livret du Citoyen, questions et réponses, simulation orale et bilan de progression.",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
