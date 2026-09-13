@@ -1,0 +1,48 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Center 66dp safe zone (21 to 87) -->
+    <!-- Marianne / Liberty Phrygian cap and civic book icon -->
+    <!-- Open Citizen's book base -->
+    <path
+        android:fillColor="#E28773"
+        android:pathData="M38,68 C44,66 50,67 54,70 C58,67 64,66 70,68 L70,72 C64,70 58,71 54,74 C50,71 44,70 38,72 Z" />
+    <path
+        android:fillColor="#FCF9F2"
+        android:pathData="M37,48 C44,46 50,47 54,50 C58,47 64,46 71,48 L71,67 C64,65 58,66 54,69 C50,66 44,65 37,67 Z" />
+    <path
+        android:fillColor="#1B3B36"
+        android:pathData="M53,49 L55,49 L55,69 L53,69 Z" />
+
+    <!-- Laurel Wreath Leaves (Left and Right) -->
+    <path
+        android:fillColor="#C7EAE2"
+        android:pathData="M32,53 C30,48 32,43 35,40 C35,44 34,48 32,53 Z" />
+    <path
+        android:fillColor="#C7EAE2"
+        android:pathData="M76,53 C78,48 76,43 73,40 C73,44 74,48 76,53 Z" />
+    <path
+        android:fillColor="#C7EAE2"
+        android:pathData="M30,62 C27,57 28,52 32,49 C31,54 31,58 30,62 Z" />
+    <path
+        android:fillColor="#C7EAE2"
+        android:pathData="M78,62 C81,57 80,52 76,49 C77,54 77,58 78,62 Z" />
+
+    <!-- Radiant Civic Star on top -->
+    <path
+        android:fillColor="#FFDAD3"
+        android:pathData="M54,30 L56.2,35.5 L62,36 L57.5,39.8 L59,45.5 L54,42.4 L49,45.5 L50.5,39.8 L46,36 L51.8,35.5 Z" />
+
+    <!-- Decorative Tricolor Ribbons beneath -->
+    <path
+        android:fillColor="#43617C"
+        android:pathData="M43,76 L48,76 L46,81 L41,81 Z" />
+    <path
+        android:fillColor="#FCF9F2"
+        android:pathData="M51.5,76 L56.5,76 L56.5,81 L51.5,81 Z" />
+    <path
+        android:fillColor="#E28773"
+        android:pathData="M60,76 L65,76 L67,81 L62,81 Z" />
+</vector>
