@@ -1,45 +1,72 @@
 import { el, mount } from "./dom";
+import { icon, type IconName } from "./icons";
 
 export type TabKey = "home" | "livret" | "questions" | "oral" | "bilan";
 
-const TABS: { key: TabKey; path: string; label: string }[] = [
-  { key: "home", path: "/", label: "Accueil" },
-  { key: "livret", path: "/livret", label: "Livret" },
-  { key: "questions", path: "/questions", label: "Questions" },
-  { key: "oral", path: "/oral", label: "Oral" },
-  { key: "bilan", path: "/bilan", label: "Bilan" }
+type Tab = { key: TabKey; path: string; label: string; icon: IconName };
+
+const TABS: Tab[] = [
+  { key: "home", path: "/", label: "Accueil", icon: "home" },
+  { key: "livret", path: "/livret", label: "Livret", icon: "livret" },
+  { key: "questions", path: "/questions", label: "Thèmes", icon: "questions" },
+  { key: "oral", path: "/oral", label: "Oral", icon: "oral" },
+  { key: "bilan", path: "/bilan", label: "Bilan", icon: "bilan" }
 ];
 
-export function renderShell(
-  root: HTMLElement,
-  active: TabKey,
-  headerTitle: string,
-  headerSubtitle: string
-): HTMLElement {
-  const content = el("div", { className: "content" });
+export type ShellHeader = {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+};
 
-  const nav = el(
-    "nav",
-    { className: "bottom-nav" },
-    TABS.map((tab) =>
-      el(
-        "a",
-        {
-          href: `#${tab.path}`,
-          className: tab.key === active ? "active" : undefined
-        },
-        [tab.label]
-      )
-    )
+/** Injecte une seule fois le fond « aurora » animé, hors du cycle de rendu. */
+export function mountAurora(host: HTMLElement = document.body): void {
+  if (host.querySelector(".aurora")) return;
+  const aurora = el("div", { className: "aurora", "aria-hidden": "true" }, [
+    el("span", {}),
+    el("span", {}),
+    el("span", {})
+  ]);
+  host.prepend(aurora);
+}
+
+function navigation(active: TabKey): HTMLElement {
+  const activeIndex = Math.max(
+    0,
+    TABS.findIndex((tab) => tab.key === active)
   );
 
-  const shell = el("div", { className: "app-shell" }, [
+  return el(
+    "nav",
+    { className: "bottom-nav", style: `--tab-count:${TABS.length}`, "aria-label": "Navigation principale" },
+    [
+      el("span", { className: "nav-pill", style: `--tab-index:${activeIndex}`, "aria-hidden": "true" }),
+      ...TABS.map((tab) =>
+        el(
+          "a",
+          {
+            href: `#${tab.path}`,
+            className: tab.key === active ? "active" : undefined,
+            "aria-current": tab.key === active ? "page" : undefined
+          },
+          [icon(tab.icon), el("span", {}, [tab.label])]
+        )
+      )
+    ]
+  );
+}
+
+export function renderShell(root: HTMLElement, active: TabKey, header: ShellHeader): HTMLElement {
+  const content = el("div", { className: "content" });
+
+  const shell = el("div", { className: "app-shell page-enter" }, [
     el("header", { className: "app-header" }, [
-      el("h1", {}, [headerTitle]),
-      el("p", {}, [headerSubtitle])
+      header.eyebrow ? el("span", { className: "eyebrow" }, [header.eyebrow]) : null,
+      el("h1", {}, [header.title]),
+      header.subtitle ? el("p", {}, [header.subtitle]) : null
     ]),
     content,
-    nav
+    navigation(active)
   ]);
 
   mount(root, shell);

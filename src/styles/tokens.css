@@ -1,0 +1,42 @@
+/* Design tokens — palette cinématique sombre, inspirée du bleu nuit républicain. */
+:root {
+  --bg: #06080f;
+  --bg-deep: #03050b;
+  --surface: rgba(255, 255, 255, 0.045);
+  --surface-strong: rgba(255, 255, 255, 0.08);
+  --surface-solid: #0d1120;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  --text: #f4f6fd;
+  --text-muted: #98a3c2;
+  --text-faint: #6b7594;
+
+  --accent: #6d8cff;
+  --accent-soft: rgba(109, 140, 255, 0.16);
+  --accent-strong: #e4566a;
+  --success: #3fd39a;
+  --warning: #f5b455;
+
+  --tricolore-blue: #2b4aca;
+  --tricolore-white: #eef2ff;
+  --tricolore-red: #d4394f;
+
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 28px;
+
+  --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+  --shadow-lift: 0 28px 60px rgba(0, 0, 0, 0.55);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 220ms;
+  --dur: 520ms;
+  --dur-slow: 900ms;
+
+  --shell-max: 680px;
+  --nav-height: 74px;
+
+  color-scheme: dark;
+}

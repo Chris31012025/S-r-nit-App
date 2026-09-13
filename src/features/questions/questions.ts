@@ -2,104 +2,73 @@ import { civicQuestions } from "../../data";
 import { CIVIC_CHAPTERS, type CivicChapterKey } from "../../data/enums";
 import { el } from "../../lib/dom";
 import { renderShell } from "../../lib/shell";
-import { loadProgress, saveProgress, toggleMastered } from "../../state/progress";
+import { loadProgress } from "../../state/progress";
+import { chapterMastery, computeMastery } from "../../state/mastery";
+import { renderQuestionDetail } from "./question-detail";
+import { renderThemeDetail } from "./theme-detail";
+import { themeCard } from "./theme-card";
 
-function renderQuestionDetail(content: HTMLElement, questionId: number): void {
-  const index = civicQuestions.findIndex((q) => q.id === questionId);
-  const question = civicQuestions[index];
-  if (!question) {
-    content.append(el("div", { className: "empty-state" }, ["Question introuvable."]));
-    return;
-  }
+const CHAPTER_KEYS = Object.keys(CIVIC_CHAPTERS) as CivicChapterKey[];
 
-  const progress = loadProgress();
-  const isMastered = progress.masteredQuestionIds.includes(question.id);
-  const prev = civicQuestions[index - 1];
-  const next = civicQuestions[index + 1];
-
-  content.append(
-    el("a", { href: "#/questions", className: "button-secondary" }, ["← Retour à la liste"]),
-    el("div", { className: "card" }, [
-      el("div", { className: "meta-row" }, [
-        el("span", { className: "tag" }, [CIVIC_CHAPTERS[question.chapter].shortTitle]),
-        question.isCrucial ? el("span", { className: "tag crucial" }, ["Fréquente"]) : null
-      ]),
-      el("h2", {}, [question.question]),
-      el("p", {}, [question.answer]),
-      question.dateTip ? el("p", { className: "tag" }, [`💡 ${question.dateTip}`]) : null,
-      el(
-        "div",
-        {},
-        question.keywords.map((keyword) => el("span", { className: "keyword-chip" }, [keyword]))
-      ),
-      el(
-        "button",
-        {
-          className: isMastered ? "button-secondary" : "button-primary",
-          onclick: () => {
-            saveProgress(toggleMastered(loadProgress(), question.id));
-            content.replaceChildren();
-            renderQuestionDetail(content, questionId);
-          }
-        },
-        [isMastered ? "✓ Maîtrisée" : "Marquer comme maîtrisée"]
-      )
-    ]),
-    el("div", { className: "meta-row" }, [
-      prev ? el("a", { href: `#/questions?q=${prev.id}`, className: "button-secondary" }, ["← Précédente"]) : el("span", {}, []),
-      next ? el("a", { href: `#/questions?q=${next.id}`, className: "button-secondary" }, ["Suivante →"]) : el("span", {}, [])
-    ])
-  );
+function isChapterKey(value: string | null): value is CivicChapterKey {
+  return value !== null && CHAPTER_KEYS.includes(value as CivicChapterKey);
 }
 
-function renderList(content: HTMLElement): void {
-  const progress = loadProgress();
-  const chapterKeys = Object.keys(CIVIC_CHAPTERS) as CivicChapterKey[];
+function renderThemeGrid(content: HTMLElement): void {
+  const masteredIds = loadProgress().masteredQuestionIds;
+  const overall = computeMastery(civicQuestions, masteredIds);
 
-  for (const chapterKey of chapterKeys) {
-    const questions = civicQuestions.filter((q) => q.chapter === chapterKey);
-    if (questions.length === 0) continue;
-    const masteredCount = questions.filter((q) => progress.masteredQuestionIds.includes(q.id)).length;
-
-    content.append(
-      el("div", { className: "card" }, [
-        el("div", { className: "meta-row" }, [
-          el("h2", {}, [CIVIC_CHAPTERS[chapterKey].title]),
-          el("span", { className: "tag" }, [`${masteredCount}/${questions.length}`])
-        ]),
-        el("p", {}, [CIVIC_CHAPTERS[chapterKey].description]),
-        el(
-          "div",
-          { style: "display:flex; flex-direction:column; gap:8px; margin-top:12px" },
-          questions.map((q) =>
-            el("a", { href: `#/questions?q=${q.id}`, className: "list-item" }, [
-              el("div", { className: "meta-row" }, [
-                el("strong", {}, [q.numberText]),
-                progress.masteredQuestionIds.includes(q.id) ? el("span", { className: "tag" }, ["✓"]) : null
-              ]),
-              el("span", {}, [q.question])
-            ])
-          )
-        )
+  content.append(
+    el("div", { className: "card", "data-reveal": "" }, [
+      el("div", { className: "meta-row" }, [
+        el("h2", {}, [`${CHAPTER_KEYS.length} thèmes`]),
+        el("span", { className: "tag" }, [`${overall.percent}% global`])
+      ]),
+      el("p", {}, [
+        "Chaque thème regroupe les questions d'un même domaine. Choisissez-en un pour réviser à votre rythme."
       ])
-    );
-  }
+    ]),
+    el(
+      "div",
+      { className: "theme-grid" },
+      CHAPTER_KEYS.map((chapter, index) =>
+        themeCard(chapter, chapterMastery(civicQuestions, masteredIds, chapter), {
+          wide: index % 3 === 0,
+          revealIndex: index
+        })
+      )
+    )
+  );
 }
 
 export function renderQuestions(root: HTMLElement, params: URLSearchParams): void {
-  const questionIdParam = params.get("q");
-  const questionId = questionIdParam ? Number.parseInt(questionIdParam, 10) : null;
-
-  const content = renderShell(
-    root,
-    "questions",
-    "Questions & Réponses",
-    "Les thèmes essentiels à connaître, organisés par catégorie"
-  );
+  const themeParam = params.get("theme");
+  const questionParam = params.get("q");
+  const questionId = questionParam ? Number.parseInt(questionParam, 10) : null;
 
   if (questionId !== null && Number.isFinite(questionId)) {
+    const question = civicQuestions.find((item) => item.id === questionId);
+    const content = renderShell(root, "questions", {
+      eyebrow: question ? CIVIC_CHAPTERS[question.chapter].shortTitle : "Question",
+      title: "Fiche de révision"
+    });
     renderQuestionDetail(content, questionId);
-  } else {
-    renderList(content);
+    return;
   }
+
+  if (isChapterKey(themeParam)) {
+    const content = renderShell(root, "questions", {
+      eyebrow: `Thème 0${CIVIC_CHAPTERS[themeParam].chapterNumber}`,
+      title: CIVIC_CHAPTERS[themeParam].shortTitle
+    });
+    renderThemeDetail(content, themeParam);
+    return;
+  }
+
+  const content = renderShell(root, "questions", {
+    eyebrow: "Révisions",
+    title: "Thèmes",
+    subtitle: "Les sujets essentiels de l'entretien, organisés par domaine"
+  });
+  renderThemeGrid(content);
 }

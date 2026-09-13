@@ -27,6 +27,27 @@ export function el<K extends keyof HTMLElementTagNameMap>(
   return node;
 }
 
+type SvgProps = Record<string, string | number | undefined>;
+
+const SVG_NS = "http://www.w3.org/2000/svg";
+
+export function svgEl<K extends keyof SVGElementTagNameMap>(
+  tag: K,
+  props: SvgProps = {},
+  children: (SVGElement | string | null | false)[] = []
+): SVGElementTagNameMap[K] {
+  const node = document.createElementNS(SVG_NS, tag);
+  for (const [key, value] of Object.entries(props)) {
+    if (value === undefined) continue;
+    node.setAttribute(key, String(value));
+  }
+  for (const child of children) {
+    if (child === null || child === false) continue;
+    node.append(typeof child === "string" ? document.createTextNode(child) : child);
+  }
+  return node;
+}
+
 export function clear(node: Element): void {
   while (node.firstChild) node.removeChild(node.firstChild);
 }
