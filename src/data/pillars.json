@@ -1,0 +1,70 @@
+[
+  {
+    "id": "valeurs",
+    "title": "Principes & Valeurs",
+    "subtitle": "Liberté, Égalité, Fraternité, Laïcité",
+    "meta": "12 fiches • 15 min",
+    "tag": null,
+    "progressNote": "3 points clés validés",
+    "gradientIndex": 0,
+    "description": "Les valeurs fondamentales qui unissent la nation française et fondent le pacte républicain.",
+    "keyFacts": [
+      "La République est indivisible, laïque, démocratique et sociale (Art. 1er de la Constitution).",
+      "La devise : 'Liberté, Égalité, Fraternité' gravée sur le fronton des mairies et écoles.",
+      "La loi du 9 décembre 1905 garantit la liberté de conscience et sépare les Églises de l'État.",
+      "L'égalité femmes-hommes est un principe inaliénable garanti par la loi."
+    ],
+    "audioTranscript": "La République française repose sur quatre principes fondateurs : la liberté, qui permet à chacun d'agir dans le respect d'autrui ; l'égalité, qui garantit que tous les citoyens ont les mêmes droits sans distinction ; la fraternité, qui appelle à la solidarité nationale ; et la laïcité, qui garantit la neutralité de l'État et la liberté absolue de conscience."
+  },
+  {
+    "id": "histoire",
+    "title": "Histoire de France",
+    "subtitle": "Grandes dates, 1789, figures clés",
+    "meta": "18 fiches • 25 min",
+    "tag": "Prioritaire",
+    "progressNote": "12/18 dates maîtrisées",
+    "gradientIndex": 1,
+    "description": "Les moments charnières qui ont forgé la France contemporaine, de 1789 aux traités européens.",
+    "keyFacts": [
+      "14 juillet 1789 : Prise de la Bastille et fête nationale célébrant la Fête de la Fédération de 1790.",
+      "26 août 1789 : Déclaration des Droits de l'Homme et du Citoyen.",
+      "1944 : Droit de vote accordé aux femmes en France par ordonnance du gouvernement provisoire.",
+      "1958 : Naissance de la Cinquième République sous l'égide du Général de Gaulle."
+    ],
+    "audioTranscript": "L'histoire de France est marquée par des tournants démocratiques majeurs. La Révolution de 1789 a aboli l'Ancien Régime et posé les bases de la souveraineté populaire. La République s'est consolidée au XIXe siècle avec l'école gratuite, laïque et obligatoire, puis au XXe siècle par la reconstruction et l'engagement européen."
+  },
+  {
+    "id": "institutions",
+    "title": "Institutions",
+    "subtitle": "Président, Parlement, Lois & Justice",
+    "meta": "10 fiches • 12 min",
+    "tag": null,
+    "progressNote": "8/10 faits mémorisés",
+    "gradientIndex": 2,
+    "description": "Le fonctionnement démocratique, la séparation des pouvoirs et les rôles institutionnels.",
+    "keyFacts": [
+      "Le Président de la République est élu pour 5 ans au suffrage universel direct.",
+      "Le Parlement se compose de l'Assemblée nationale (Palais Bourbon) et du Sénat (Palais du Luxembourg).",
+      "Le Premier ministre conduit l'action du gouvernement à l'Hôtel de Matignon.",
+      "Le Conseil constitutionnel veille à la conformité des lois avec la Constitution."
+    ],
+    "audioTranscript": "La Ve République sépare le pouvoir exécutif, exercé par le Président et le Gouvernement, le pouvoir législatif détenu par le Parlement composé de l'Assemblée nationale et du Sénat, et l'autorité judiciaire indépendante qui applique les lois."
+  },
+  {
+    "id": "droits",
+    "title": "Droits & Devoirs",
+    "subtitle": "Impôts, vote, respect des lois",
+    "meta": "8 fiches • 10 min",
+    "tag": "À revoir",
+    "progressNote": "5/8 devoirs assimilés",
+    "gradientIndex": 3,
+    "description": "Les responsabilités citoyennes, l'engagement civique et la participation à la vie de la cité.",
+    "keyFacts": [
+      "Droit de vote et d'éligibilité pour participer activement à la vie démocratique.",
+      "Devoir de respecter les lois républicaines et les droits d'autrui.",
+      "Contribution fiscale équitable au financement des services publics de la Nation.",
+      "Devoir de défense nationale et de participation aux jurys d'assises si convoqué."
+    ],
+    "audioTranscript": "Être citoyen français implique un équilibre fondamental entre droits et devoirs. Vous disposez de la liberté d'expression, du droit de vote et de protection, tout en ayant le devoir d'obéir aux lois, de participer à l'effort commun par l'impôt et de respecter la dignité de chacun."
+  }
+]

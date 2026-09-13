@@ -1,6 +1,0 @@
-{
-  "name": "Sérénité Républicaine",
-  "description": "Préparation sereine à l'entretien de naturalisation française : Livret du Citoyen, simulation orale IA et rapport de progrès.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

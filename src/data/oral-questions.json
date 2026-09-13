@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "indexText": "Question 01 sur 08",
+    "questionText": "Pour quelles raisons avez-vous choisi de vivre durablement en France ?",
+    "sampleAnswer": "J'ai choisi la France pour son attachement profond aux libertés fondamentales, son ouverture culturelle et les opportunités qu'elle offre. C'est ici que je construis ma vie et que je souhaite m'engager pleinement.",
+    "instructorAdvice": "Parlez avec sincérité de votre parcours personnel et professionnel. L'agent cherche à comprendre votre attachement réel au pays.",
+    "keywords": [
+      "Projet de vie",
+      "Valeurs",
+      "Intégration",
+      "Stabilité"
+    ]
+  },
+  {
+    "id": 2,
+    "indexText": "Question 02 sur 08",
+    "questionText": "Que symbolise pour vous la devise 'Liberté, Égalité, Fraternité' au quotidien ?",
+    "sampleAnswer": "Pour moi, la liberté me permet de penser et d'agir sans crainte ; l'égalité garantit que chacun a sa chance sans discrimination ; et la fraternité représente l'entraide et la solidarité qui nous lient tous.",
+    "instructorAdvice": "Donnez un exemple concret de votre quotidien où vous appliquez la fraternité ou l'entraide de quartier.",
+    "keywords": [
+      "Solidarité",
+      "Droits égaux",
+      "Respect mutuel"
+    ]
+  },
+  {
+    "id": 3,
+    "indexText": "Question 03 sur 08",
+    "questionText": "Pourquoi souhaitez-vous devenir français(e) et quel principe de la République vous touche le plus ?",
+    "sampleAnswer": "Je souhaite devenir française car je partage pleinement les valeurs républicaines, notamment l'égalité des chances et la laïcité qui me permettent de m'épanouir au quotidien. C'est un engagement moral et civique envers la communauté nationale.",
+    "instructorAdvice": "Pensez à ancrer votre réponse dans votre parcours concret : citez un exemple précis de votre vie quotidienne ou professionnelle en France pour illustrer comment vous vivez la fraternité ou l'égalité.",
+    "keywords": [
+      "Vie associative",
+      "Respect mutuel",
+      "Engagement local"
+    ]
+  },
+  {
+    "id": 4,
+    "indexText": "Question 04 sur 08",
+    "questionText": "Comment définissez-vous la laïcité et comment doit-elle s'appliquer dans un service public ?",
+    "sampleAnswer": "La laïcité garantit la liberté de croire ou de ne pas croire, tout en imposant une stricte neutralité religieuse aux agents du service public afin de traiter tous les usagers de manière parfaitement égale.",
+    "instructorAdvice": "Soulignez bien que la laïcité n'est pas contre les religions, mais qu'elle protège la liberté de conscience de chacun.",
+    "keywords": [
+      "Neutralité de l'État",
+      "Liberté de culte",
+      "Loi de 1905"
+    ]
+  },
+  {
+    "id": 5,
+    "indexText": "Question 05 sur 08",
+    "questionText": "Citez un événement historique marquant de la France et expliquez son importance.",
+    "sampleAnswer": "La Révolution de 1789 et la prise de la Bastille le 14 juillet représentent l'affirmation des libertés et des droits de l'homme, marquant la naissance des principes démocratiques modernes.",
+    "instructorAdvice": "Retenez bien les grandes dates : 14 juillet 1789, 11 novembre 1918, 8 mai 1945, et 1958.",
+    "keywords": [
+      "14 juillet 1789",
+      "DDHC",
+      "Fête nationale"
+    ]
+  },
+  {
+    "id": 6,
+    "indexText": "Question 06 sur 08",
+    "questionText": "Qui vote les lois en France et où siègent les représentants de la Nation ?",
+    "sampleAnswer": "Les lois sont votées par le Parlement, composé de l'Assemblée nationale au Palais Bourbon et du Sénat au Palais du Luxembourg. En cas de désaccord persistant, l'Assemblée nationale a le dernier mot.",
+    "instructorAdvice": "Mentionnez le bicamérisme et le fait que les députés sont élus directement par les citoyens.",
+    "keywords": [
+      "Parlement",
+      "Assemblée nationale",
+      "Sénat"
+    ]
+  },
+  {
+    "id": 7,
+    "indexText": "Question 07 sur 08",
+    "questionText": "Quels sont les devoirs majeurs d'un citoyen français ?",
+    "sampleAnswer": "Respecter scrupuleusement les lois, payer ses impôts pour soutenir la collectivité, participer au vote, et respecter la dignité ainsi que les libertés de chaque concitoyen.",
+    "instructorAdvice": "Insistez sur la notion de solidarité nationale à travers la contribution fiscale et le civisme.",
+    "keywords": [
+      "Respect de la loi",
+      "Impôts",
+      "Participation citoyenne"
+    ]
+  },
+  {
+    "id": 8,
+    "indexText": "Question 08 sur 08",
+    "questionText": "Quels sont les symboles officiels de la République française ?",
+    "sampleAnswer": "Le drapeau tricolore bleu blanc rouge, la devise 'Liberté, Égalité, Fraternité', l'hymne national 'La Marseillaise', la figure de Marianne, et le 14 juillet comme jour de fête nationale.",
+    "instructorAdvice": "Vous pouvez également citer le coq gaulois et le sceau de la République.",
+    "keywords": [
+      "Drapeau tricolore",
+      "La Marseillaise",
+      "Marianne",
+      "14 juillet"
+    ]
+  }
+]
