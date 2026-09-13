@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Préparation sereine à l'entretien de naturalisation française : Livret du Citoyen, questions et réponses, simulation orale et bilan de progression.",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
